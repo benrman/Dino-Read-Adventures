@@ -1,0 +1,1 @@
+REPO_ROOT=C:\Users\elybe\Projects\DinoReadAdventures

@@ -1,0 +1,8 @@
+node_modules
+dist
+dist-electron
+release
+dist-release
+dist-pack-out
+*.log
+.DS_Store

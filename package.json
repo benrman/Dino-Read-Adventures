@@ -1,0 +1,48 @@
+{
+  "name": "dino-reading-adventure",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist-electron/main.js",
+  "description": "Offline dinosaur reading adventure for ages 5–12",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "unlock:dino": "node scripts/free-build-locks.mjs",
+    "build": "node scripts/free-build-locks.mjs && vite build && electron-builder",
+    "build:only": "vite build && electron-builder",
+    "build:fresh-out": "vite build && electron-builder --config.directories.output=dist-pack-out",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.node.json --noEmit"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vite-plugin-electron": "^0.28.8",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  },
+  "build": {
+    "appId": "com.local.dino-reading-adventure",
+    "productName": "Dino Reading Adventure",
+    "directories": { "output": "dist-release" },
+    "files": ["dist/**/*", "dist-electron/**/*"],
+    "win": {
+      "target": ["portable", "dir"],
+      "signAndEditExecutable": false
+    },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}
+
+
